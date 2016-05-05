@@ -4,15 +4,15 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertArrayEquals;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -23,53 +23,52 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ExampleUnitTest {
 
-   @Test
-   public void list_isCorrect() throws Exception {
-       // mock creation
-       List mockedList = mock(List.class);
+    @Test
+    public void list_isCorrect() throws Exception {
+        // mock creation
+        List mockedList = mock(List.class);
 
-       // using mock object - it does not throw any "unexpected interaction" exception
-       mockedList.add("one");
-       mockedList.clear();
+        // using mock object - it does not throw any "unexpected interaction" exception
+        mockedList.add("one");
+        mockedList.clear();
 
-       // selective, explicit, highly readable verification
-       verify(mockedList).add("one");
-       verify(mockedList).clear();
-   }
+        // selective, explicit, highly readable verification
+        Mockito.verify(mockedList).add("one");
+        Mockito.verify(mockedList).clear();
+    }
 
-   @Test
-   public void checkMahasiswaNama_isNotNull() throws Exception {
+    @Test
+    public void checkMahasiswaNama_isNotNull() throws Exception {
 
-       Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
+        Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
 
-       when(mockedMahasiswa.getNama()).thenReturn("faerul salamun");
+        when(mockedMahasiswa.getNama()).thenReturn("faerul salamun");
 
-       assertNotNull("Seharusnya tidak null", mockedMahasiswa.getNama());
-   }
+        assertNotNull("Seharusnya tidak null", mockedMahasiswa.getNama());
+    }
 
-   @Test
-   public void checkMahasiswaNama_isNull() throws Exception {
+    @Test
+    public void checkMahasiswaNama_isNull() throws Exception {
 
-       Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
+        Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
 
-       assertNull("Seharusnya null", mockedMahasiswa.getNama());
+        assertNull("Seharusnya null", mockedMahasiswa.getNama());
 
-       assert
-   }
+    }
 
-   @Test
-   public void checkMahasiswaUmur_isCorrect() throws Exception {
+    @Test
+    public void checkMahasiswaUmur_isCorrect() throws Exception {
 
-       Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
+        Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
 
-       int tahunSekarang = 2016;
+        int tahunSekarang = 2016;
 
-       when(mockedMahasiswa.getTahunLahir()).thenReturn(1990);
+        when(mockedMahasiswa.getTahunLahir()).thenReturn(1990);
 
-       int umur = tahunSekarang - mockedMahasiswa.getTahunLahir();
+        int umur = tahunSekarang - mockedMahasiswa.getTahunLahir();
 
-       assertEquals("Umur", 26, umur);
-   }
+        assertEquals("Umur", 26, umur);
+    }
 
 
     @Test
@@ -78,7 +77,7 @@ public class ExampleUnitTest {
         Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
         Mahasiwa mockedMahasiswaClone = mock(Mahasiwa.class);
 
-        assertNotSame(mockedMahasiswa,mockedMahasiswaClone);
+        assertNotSame(mockedMahasiswa, mockedMahasiswaClone);
     }
 
 
