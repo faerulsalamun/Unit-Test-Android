@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+sourceSets {
+    testLocal {
+        java.srcDir file('src/test/java')
+        resources.srcDir file('src/test/resources')
+    }
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -26,3 +33,19 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
 }
+
+task localTest(type: Test, dependsOn: assemble) {
+    testClassesDir = sourceSets.testLocal.output.classesDir
+
+    android.sourceSets.main.java.srcDirs.each { dir ->
+        def buildDir = dir.getAbsolutePath().split('/')
+        buildDir =  (buildDir[0..(buildDir.length - 4)] + ['build', 'classes', 'debug']).join('/')
+
+        sourceSets.testLocal.compileClasspath += files(buildDir)
+        sourceSets.testLocal.runtimeClasspath += files(buildDir)
+    }
+
+    classpath = sourceSets.testLocal.runtimeClasspath
+}
+
+check.dependsOn localTest
