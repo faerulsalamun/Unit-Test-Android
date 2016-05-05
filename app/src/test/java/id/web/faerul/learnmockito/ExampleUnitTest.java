@@ -23,53 +23,53 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ExampleUnitTest {
 
-//    @Test
-//    public void list_isCorrect() throws Exception {
-//        // mock creation
-//        List mockedList = mock(List.class);
-//
-//        // using mock object - it does not throw any "unexpected interaction" exception
-//        mockedList.add("one");
-//        mockedList.clear();
-//
-//        // selective, explicit, highly readable verification
-//        verify(mockedList).add("one");
-//        verify(mockedList).clear();
-//    }
+   @Test
+   public void list_isCorrect() throws Exception {
+       // mock creation
+       List mockedList = mock(List.class);
 
-//    @Test
-//    public void checkMahasiswaNama_isNotNull() throws Exception {
-//
-//        Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
-//
-//        when(mockedMahasiswa.getNama()).thenReturn("faerul salamun");
-//
-//        assertNotNull("Seharusnya tidak null", mockedMahasiswa.getNama());
-//    }
+       // using mock object - it does not throw any "unexpected interaction" exception
+       mockedList.add("one");
+       mockedList.clear();
 
-//    @Test
-//    public void checkMahasiswaNama_isNull() throws Exception {
-//
-//        Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
-//
-//        assertNull("Seharusnya null", mockedMahasiswa.getNama());
-//
-//        assert
-//    }
+       // selective, explicit, highly readable verification
+       verify(mockedList).add("one");
+       verify(mockedList).clear();
+   }
 
-//    @Test
-//    public void checkMahasiswaUmur_isCorrect() throws Exception {
-//
-//        Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
-//
-//        int tahunSekarang = 2016;
-//
-//        when(mockedMahasiswa.getTahunLahir()).thenReturn(1990);
-//
-//        int umur = tahunSekarang - mockedMahasiswa.getTahunLahir();
-//
-//        assertEquals("Umur", 26, umur);
-//    }
+   @Test
+   public void checkMahasiswaNama_isNotNull() throws Exception {
+
+       Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
+
+       when(mockedMahasiswa.getNama()).thenReturn("faerul salamun");
+
+       assertNotNull("Seharusnya tidak null", mockedMahasiswa.getNama());
+   }
+
+   @Test
+   public void checkMahasiswaNama_isNull() throws Exception {
+
+       Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
+
+       assertNull("Seharusnya null", mockedMahasiswa.getNama());
+
+       assert
+   }
+
+   @Test
+   public void checkMahasiswaUmur_isCorrect() throws Exception {
+
+       Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
+
+       int tahunSekarang = 2016;
+
+       when(mockedMahasiswa.getTahunLahir()).thenReturn(1990);
+
+       int umur = tahunSekarang - mockedMahasiswa.getTahunLahir();
+
+       assertEquals("Umur", 26, umur);
+   }
 
 
     @Test
