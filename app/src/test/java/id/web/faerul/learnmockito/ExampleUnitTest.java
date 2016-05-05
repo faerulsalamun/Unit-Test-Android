@@ -24,20 +24,6 @@ import static org.mockito.Mockito.when;
 public class ExampleUnitTest {
 
     @Test
-    public void list_isCorrect() throws Exception {
-        // mock creation
-        List mockedList = mock(List.class);
-
-        // using mock object - it does not throw any "unexpected interaction" exception
-        mockedList.add("one");
-        mockedList.clear();
-
-        // selective, explicit, highly readable verification
-        Mockito.verify(mockedList).add("one");
-        Mockito.verify(mockedList).clear();
-    }
-
-    @Test
     public void checkMahasiswaNama_isNotNull() throws Exception {
 
         Mahasiwa mockedMahasiswa = mock(Mahasiwa.class);
